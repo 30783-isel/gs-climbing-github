@@ -1,0 +1,62 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark border border-info">
+  
+      <div id="wrapper">
+        <div id="first-div">
+          <!-- logo -->
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <img class="title" src="assets/images/logo.svg">
+            </a>
+          </div>
+        </div>
+
+        <div id="third-div">
+  
+          <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li>
+              <span class="bordeux username">{{username}}</span>
+            </li>
+            <li>
+              <a *ngIf="!isLoggedIn" class="bordeux" href="/login">{{ 'GSCLIMBING.LOGIN' | translate }}</a>
+            </li>
+            <li>
+              <a *ngIf="isLoggedIn" class="bordeux" (click)=handleLogout()>{{ 'GSCLIMBING.LOGOUT' | translate }}</a>
+            </li>
+          </ul>
+  
+  
+          <div class="language-div">
+            <label class="bordeux">
+              {{ 'GSCLIMBING.SELECT' | translate }}
+              <select class="custom-select custom-select-sm form-control_ width_control" #langSelect (change)="translate.use(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                  [selected]="lang === translate.currentLang">
+                  {{ lang }}</option>
+              </select>
+            </label>
+          </div>
+  
+  
+        </div>
+      </div>  
+    </nav>
+  </header>
+
+<!--   <div id="second-div">
+    <ul class="text-center list-inline py-3">
+
+       <li class="list-inline-item">
+        <a routerLink="/technician" class="btn btn-outline-info btn-sm" (click)='techClick()'>{{
+          'GSCLIMBING.TECHNICIAN'
+          | translate }}</a>
+      </li>
+
+
+      <li class="list-inline-item">
+        <a routerLink="/administrator" class="btn btn-outline-info  btn-sm" (click)='adminClick()'>{{
+          'GSCLIMBING.ADMINISTRATORS' | translate }}</a>
+      </li> 
+
+    </ul>
+  </div> -->

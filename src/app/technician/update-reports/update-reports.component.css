@@ -1,0 +1,117 @@
+#btn-ask-permission {
+  text-align   : left;
+  margin-bottom: 10px;
+}
+
+.title3 {
+  color      : #50091D;
+  font-weight: bold;
+}
+
+.title4 {
+  color      : #50091D;
+  font-weight: bold;
+}
+
+.title5 {
+  color      : #50091D;
+  font-weight: bold;
+}
+
+.lbl {
+  color: #50091D;
+}
+
+.txt {
+  background-color: #f7f7f7;
+}
+
+.txttbt {
+  background-color: #f7f7f7;
+}
+
+.headcolor {
+  background-color: hsl(343, 81%, 22%);
+  color           : #ffffff;
+  vertical-align  : middle;
+  text-align      : center;
+}
+
+.chkmrg {
+  margin-right: 10px;
+}
+
+
+#wrapper {
+  width : 100%;
+  margin: 0;
+}
+
+#first-div {
+  width : 90%;
+  margin: 0;
+  float : left;
+}
+
+#second-div {
+  width : 10%;
+  margin: 0;
+  float : left;
+}
+
+.img_title {
+  width: 30%;
+}
+
+.img_back_bordeux {
+  filter: invert(6%) sepia(86%) saturate(3551%) hue-rotate(335deg) brightness(92%) contrast(99%);
+}
+
+.hideButton {
+  display: none;
+}
+
+
+.thumbnails {
+  border       : 1px solid #ddd;
+  /* Gray border */
+  border-radius: 4px;
+  /* Rounded border */
+  padding      : 5px;
+  /* Some padding */
+  width        : 400px;
+  /* Set a small width */
+}
+
+
+.form-control_:focus {
+  border-color: #670B25;
+  box-shadow  : 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+}
+
+.color_ {
+  color      : #50091D;
+  font-weight: bold;
+}
+
+.custom-file-input:focus~.custom-file-label {
+  border-color: #670B25;
+  box-shadow  : 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+  width: 86%;
+}
+
+
+.line_color {
+  height          : 2px;
+  color           : #50091D;
+  background-color: #50091D;
+}
+
+.submit_margin {
+  margin-left: 20px;
+  margin-top : 10px;
+}
+
+.w-86{
+  width: 86% !important;
+}

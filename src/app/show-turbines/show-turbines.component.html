@@ -1,0 +1,439 @@
+<app-header></app-header>
+<div class="container">
+  <div class="back_div">
+    <a (click)="go_back()" class="navbar-item" id="goback">
+      <img class="img_title img_back_bordeux" src="assets/images/return-button.svg">
+    </a>
+  </div>
+  <div class="row">
+    <div class="block-left">
+      <div class="card-body">
+        <div id="wrapper" class="w-turbinas">
+          <table class="table table-bordered table-striped rounded">
+            <thead>
+              <tr class="align_th">
+                <th scope="col" colspan="2" class="cell_width">{{ 'GSCLIMBING.TURBINE' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let turbine of turbines" class="row-h rounded">
+                <td class="id-clss cell_width turbine_click" (click)='showTurbineReports(turbine.id)'>{{ turbine.name}}
+                </td>
+                <div *ngIf="message == 'admin'" class="rounded">
+                  <app-dropdown-turbines [turbine]="turbine" (valueUpdate)="getUpdatedvalue($event)">
+                  </app-dropdown-turbines>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="block-right" style="width: 65%;">
+      <div *ngIf="turbineSelected">
+        <div class="div-border w-accordion">
+          <p class="turbine-id">{{ 'GSCLIMBING.NAME' | translate }}: {{turbineSelected.name}}</p>
+          <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" closeOthers="true">
+            <div *ngIf="defectInspectionsReport && defectInspectionsReport != null" class="w-turbinas">
+              <ngb-panel title="{{ 'GSCLIMBING.DEFECTS_INSPECTION_REPORTS' | translate }}">
+                <ng-template ngbPanelContent>
+
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ defectInspectionsReport.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ defectInspectionsReport.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="defectInspectionsReport"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                </ng-template>
+              </ngb-panel>
+            </div>
+            <div *ngIf="examinationTransformer && examinationTransformer != null">
+              <ngb-panel title="{{ 'GSCLIMBING.EXAMINATION_TRANSFORMER' | translate }}">
+                <ng-template ngbPanelContent>
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ examinationTransformer.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ examinationTransformer.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="examinationTransformer"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </ngb-panel>
+            </div>
+            <div *ngIf="measurements690V400V && measurements690V400V != null">
+              <ngb-panel title="{{ 'GSCLIMBING.MEASUREMENTS_690V400V' | translate }}">
+                <ng-template ngbPanelContent>
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ measurements690V400V.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ measurements690V400V.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="measurements690V400V"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </ngb-panel>
+            </div>
+            <div *ngIf="measurements6KV && measurements6KV != null">
+              <ngb-panel title="{{ 'GSCLIMBING.MEASUREMENTS_M6KV' | translate }}">
+                <ng-template ngbPanelContent>
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ measurements6KV.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ measurements6KV.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="measurements6KV"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </ngb-panel>
+            </div>
+            <div *ngIf="measurementsMwSwitchgear && measurementsMwSwitchgear != null">
+              <ngb-panel title="{{ 'GSCLIMBING.MEASUREMENTS_MW_SWITCHGEAR' | translate }}">
+                <ng-template ngbPanelContent>
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ measurementsMwSwitchgear.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ measurementsMwSwitchgear.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="measurementsMwSwitchgear"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </ngb-panel>
+            </div>
+            <div *ngIf="onboardCraneInspectionReport && onboardCraneInspectionReport != null">
+              <ngb-panel title="{{ 'GSCLIMBING.ONBOARD_CRANE_INSPECTION_REPORT_SERVICE' | translate }}">
+                <ng-template ngbPanelContent>
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ onboardCraneInspectionReport.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ onboardCraneInspectionReport.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="onboardCraneInspectionReport"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </ngb-panel>
+            </div>
+            <div *ngIf="performanceReportRepairElevator && performanceReportRepairElevator != null">
+              <ngb-panel title="{{ 'GSCLIMBING.PERFORMANCE_REPORT_REPAIR_ELEVATOR' | translate }}">
+                <ng-template ngbPanelContent>
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ performanceReportRepairElevator.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ performanceReportRepairElevator.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="performanceReportRepairElevator"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </ngb-panel>
+            </div>
+            <div *ngIf="statutoryInspectionReport && statutoryInspectionReport != null">
+              <ngb-panel title="{{ 'GSCLIMBING.STATUORY_INSPECTION_REPORT' | translate }}">
+                <ng-template ngbPanelContent>
+                  <table style="width: 100%;">
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.SITE' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ statutoryInspectionReport.site }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="block-accordion-left">{{ 'GSCLIMBING.NUMBER' | translate }}</div>
+                          <div class="block-accordion-rigth">{{ statutoryInspectionReport.wtgNumber }}</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="rows ">
+                          <app-dropdown-reports [report]="statutoryInspectionReport"
+                            (valueUpdate)="getUpdatedvalueReports($event)"></app-dropdown-reports>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </ng-template>
+              </ngb-panel>
+            </div>
+          </ngb-accordion>
+        </div><!-- <div class="div-border w-accordion"> -->
+      </div><!-- <div *ngIf="turbineSelected"> -->
+    </div><!-- <div class="block-right"> -->
+  </div><!-- <div class="row"> -->
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title title_">{{ 'GSCLIMBING.EDIT_PROJECT' | translate }}</h4>
+          <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="form-inline">
+              <div>
+                <input type="hidden" id="turbineId" />
+                <table>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="defects-inspection-report">
+                      </div>
+                    </td>
+                    <td class="reports-label">Defects inspection report</td>
+                  </tr>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="examination-transformer">
+                      </div>
+                    </td>
+                    <td class="reports-label">Examination transformer</td>
+                  </tr>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="measurements-6KV">
+                      </div>
+                    </td>
+                    <td class="reports-label">Measurements 6KV</td>
+                  </tr>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="measurements-690V400V">
+                      </div>
+                    </td>
+                    <td class="reports-label">Measurements 690V400V and resistence</td>
+                  </tr>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="measurements-mw-switchgear">
+                      </div>
+                    </td>
+                    <td class="reports-label">Measurements of MV Switchgear and stator cabinet</td>
+                  </tr>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="onboard-crane-inspection-report">
+                      </div>
+                    </td>
+                    <td class="reports-label">Onboard crane Inspection Report</td>
+                  </tr>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="performance-report-repair-elevator">
+                      </div>
+                    </td>
+                    <td class="reports-label">Performance report repair elevator</td>
+                  </tr>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <input type="checkbox" id="statutory-inspection-report">
+                      </div>
+                    </td>
+                    <td class="reports-label">Statutory Inspection Report</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-info btn-sm" (click)="addReports2Turbine()" data-dismiss="modal">
+              {{ 'GSCLIMBING.SUBMIT' | translate }}
+            </button>
+            <button type="button" class="btn btn-outline-info btn-sm font_ctrl2" data-dismiss="modal">{{
+              'GSCLIMBING.CLOSE' |
+              translate
+              }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <!-- Modal Edit Turbine-->
+  <div id="myModalEdit" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title title_">{{ 'GSCLIMBING.EDIT_PROJECT' | translate }}</h4>
+          <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="form-inline">
+              <div>
+                <input type="hidden" id="editTurbineId" />
+                <table>
+                  <tr>
+                    <td class="first-row">
+                      <div class="same-line">
+                        <label for="name">{{ 'GSCLIMBING.NAME' | translate }}</label>
+                        <input type="text" id="name-turbine">
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-info btn-sm" (click)="updateTurbine()" data-dismiss="modal">
+              {{ 'GSCLIMBING.SUBMIT' | translate }}
+            </button>
+            <button type="button" class="btn btn-outline-info btn-sm font_ctrl2" data-dismiss="modal">{{
+              'GSCLIMBING.CLOSE' |
+              translate
+              }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Edit Turbine-->
+</div>

@@ -1,0 +1,12 @@
+<div class="dropdown">
+    <button class="dropbtn dropdown-toggle" id="btnMyDropDown">{{ 'GSCLIMBING.OPTIONS' | translate }}</button>
+    <div id="myDropdown" class="dropdown-content"  style="text-align: center;align-items: center; vertical-align: middle;">
+      <div *ngIf="message == 'admin'">
+        <a class="drop_btn" (click)='deleteProject(project.name)'>{{ 'GSCLIMBING.DELETE' | translate }}</a>
+        <a class="drop_btn" (click)='addTurbine(project.idProject)'>{{ 'GSCLIMBING.ADDTURBINE' | translate }}</a>
+        <a (click)='addProjectsUser(project.idProject)' data-toggle="modal" data-target="#modalAddUsers2Project">{{ 'GSCLIMBING.TECHNICIANS' | translate }}</a>
+      </div>
+      <a class="drop_btn" (click)='showTurbines(project.idProject)' data-toggle="modal" data-target="#modalViewTurbinesFromProject">{{ 'GSCLIMBING.SHOWTURBINES' | translate }}</a>
+      <a class="drop_btn" (click)='downloadReports(project.idProject)'>{{ 'GSCLIMBING.DOWNLOAD_REPORTS' | translate }}</a>
+    </div>
+</div>

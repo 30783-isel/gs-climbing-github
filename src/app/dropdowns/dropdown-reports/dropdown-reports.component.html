@@ -1,0 +1,13 @@
+<div class="relative">
+<div *ngIf="message=='admin'" class="navitem">
+  <button class="btn btn-outline-info  btn-sm" (click)='historicReport(report.reportId)'>{{ 'GSCLIMBING.HISTORIC' | translate }}</button>
+</div>
+<button href="#" class="btn btn-outline-info btn-sm navitem" data-toggle="modal" data-target="#modalEdit" (click)='openModal()'>{{ 'GSCLIMBING.EDIT' | translate }}</button>
+<div *ngIf="message=='admin'" class="navitem">
+  <button class="btn btn-outline-info  btn-sm navitem" (click)='deleteReport(report.reportId)'>{{ 'GSCLIMBING.DELETE' | translate }}</button>
+</div>
+<div *ngIf="(message=='admin' && report.permission2Edit=='true')" class="navitem">
+    <button class="btn btn-outline-info  btn-sm" (click)='updatePermissionGranted(report.reportId)'>{{ 'GSCLIMBING.UNLOCK' | translate }}</button>
+</div>
+<button class="btn btn-outline-info  btn-sm navitem" (click)='downloadFile(report.reportId.toString(), report.typeReport.toString())'>PDF</button>
+</div>

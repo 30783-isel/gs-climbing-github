@@ -1,0 +1,61 @@
+<div class="dropdown">
+    <button class="dropbtn dropdown-toggle" id="btnMyDropDown">{{ 'GSCLIMBING.OPTIONS' | translate }}</button>
+    <div id="myDropdown" class="dropdown-content"  style="text-align: center;align-items: center; vertical-align: middle;">
+      <a (click)='editUser(user.username)' data-toggle="modal" >{{ 'GSCLIMBING.EDIT' | translate }}</a>
+      <a (click)='deleteUser(user.username)' data-toggle="modal" >{{ 'GSCLIMBING.DELETE' | translate }}</a>
+      <div *ngIf="user.roles === 'TECH'">
+        <a (click)='addProjectsUser(user.username)' data-toggle="modal" data-target="#modalUsers">{{ 'GSCLIMBING.PROJECTS' | translate }}</a>
+      </div>
+    </div>
+</div>
+
+<!-- Modal add user-->
+<div id="modalEditUser" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title title_" id="user-name-id"></h4>
+              <input type="hidden" id="user-id">
+              <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="editForm" (ngSubmit)="onSubmit()" id="formEditUser">
+                <input formControlName="idUser" placeholder="idUser" name="idUser" class="form-control-hide" id="idUser">
+                <input formControlName="password" placeholder="password" name="password" class="form-control-hide" id="password">
+                  <div class="form-group formw">
+                      <label for="name">{{ 'GSCLIMBING.NAME' | translate }}</label>
+                      <input formControlName="name" placeholder="name" name="name"
+                          class="form-control form-control_" id="name">
+                  </div>
+                  <div class="form-group formw">
+                      <label for="username">{{ 'GSCLIMBING.USERNAME' | translate }}</label>
+                      <input formControlName="username" placeholder="username" name="username"
+                          class="form-control form-control_" id="username">
+                  </div>
+                  <div class="form-group formw">
+                      <label for="email">Email</label>
+                      <input formControlName="email" placeholder="email" name="email"
+                          class="form-control form-control_" id="email">
+                  </div>
+                  <div class="form-group formw">
+                      <label for="roles">{{ 'GSCLIMBING.ROLES' | translate }}</label>
+                      <!-- <input formControlName="roles" placeholder="roles" name="roles" class="form-control" id="roles"> -->
+                      <select formControlName="roles" placeholder="roles" name="roles"
+                          class="form-control  form-control_" id="roles">
+                          <option [ngValue]="undefined" disabled selected>Select Item</option>
+                          <option value='ADMIN'>Administrator</option>
+                          <option value='TECH'>Technician</option>
+                      </select>
+                  </div>
+                  <button class="btn btn-outline-info btn-sm">{{ 'GSCLIMBING.UPDATE_USER' | translate }}</button>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-info btn-sm" data-dismiss="modal" (click)="closeModal()">{{
+                  'GSCLIMBING.CLOSE' | translate }}</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Modal -->

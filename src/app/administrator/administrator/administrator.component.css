@@ -1,0 +1,16 @@
+ /* this is for clicked or active tabs */
+ .nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    background-color: #FFF;
+    color: #5C0A21;
+    font-size: 15px;
+    font-weight: bold;
+}
+/* this is for normal tabs */
+.nav-tabs .nav-link{
+ background-color: #FFFF;
+    color: #B61442;
+    font-size: 15px;
+    font-weight: bold;
+ padding: 5px 25px;
+}

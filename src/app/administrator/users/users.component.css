@@ -1,0 +1,99 @@
+.w10{
+    width: 10%;
+}
+
+.w50{
+    width: 50%;
+}
+
+.input-label {
+    color      : #670B25;
+    margin-left: 2%
+}
+
+.project-buttons {
+    margin-left: 2%;
+}
+
+.rounded-search {
+    background-color: hsl(343, 41%, 97%);
+    border-collapse : separate;
+    border          : solid #670B25 1px;
+    border-radius   : 8px;
+}
+
+.search-image {
+    background-image: url('/assets/images/search.png');
+    background-size : 20%;
+}
+
+.search-margin {
+    width      : 90%;
+    margin-left: 2%;
+}
+
+.row_title {
+    line-height: 14px;
+}
+
+.row_fields {
+    line-height: 14px;
+}
+
+table {
+    border-collapse: separate;
+    border         : solid #670B25 1px;
+    border-radius  : 8px;
+}
+
+td,
+th {
+    border       : solid #670B25 none;
+    border-radius: 8px;
+}
+
+th {
+    background-color: #670B25;
+    color           : #ffffff;
+    border-top      : none;
+}
+
+td:first-child,
+th:first-child {
+    border-left: none;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td {
+    background-color: hsl(343, 41%, 97%);
+}
+
+.table-striped>tbody>tr:nth-child(even)>td {
+    background-color: hsl(0, 0%, 100%);
+}
+
+.cell {
+    width: 33%;
+}
+
+.formw {
+    width: 70%;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: hsl(343, 41%, 97%);
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+    background-color: #ffffff;
+}
+
+.align_th {
+    text-align: center;
+}
+
+.form-control_:focus {
+    border-color: #670B25;
+    box-shadow  : 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+}

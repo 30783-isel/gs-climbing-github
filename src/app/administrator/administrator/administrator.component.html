@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+
+    <li [ngbNavItem]="1">
+      <a ngbNavLink id="projects" class="projectsClass">{{ 'GSCLIMBING.PROJECTS' | translate }}</a>
+      <ng-template ngbNavContent>
+        <app-projects></app-projects>
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="2">
+      <a ngbNavLink id="users" class="userssClass">{{ 'GSCLIMBING.USERS' | translate }}</a>
+      <ng-template ngbNavContent>
+        <app-users></app-users>
+      </ng-template>
+    </li>
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+</div>

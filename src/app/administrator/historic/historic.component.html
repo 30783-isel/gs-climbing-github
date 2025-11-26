@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="back_div">
+        <a (click)="go_back()" class="navbar-item">
+            <img class="img_title img_back_bordeux" src="assets/images/return-button.svg">
+        </a>
+    </div>
+    <div class="card my-5">
+        <div class="card-body">
+            <div *ngFor="let historic of listHistorics">
+                <div>
+                    <label class="lblHist">{{ 'GSCLIMBING.DATE' | translate }} - </label> {{
+                    historic.historicRecord.localDateTime }}
+                </div>
+                <div>
+                    <label class="lblHist">{{ 'GSCLIMBING.USER' | translate }} - </label> {{ historic.historicRecord.user
+                    }}
+                </div>
+                <table class="table table-bordered table-striped">
+                    <thead class="headcolor">
+                        <tr class="align_th">
+                            <th scope="col">{{ 'GSCLIMBING.FIELD' | translate }}</th>
+                            <th scope="col">{{ 'GSCLIMBING.BEFORE' | translate }}</th>
+                            <th scope="col">{{ 'GSCLIMBING.AFTER' | translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let alteration of historic.listAlterations">
+                            <td>{{ alteration.field }}</td>
+                            <td>
+                                <div *ngIf=alteration.fieldOld>
+                                    {{ alteration.fieldOld }}
+                                </div>
+                                <div *ngIf=alteration.oldPicByte>
+                                    <a target="_blank" href="alteration.oldPicByte">
+                                        <img class="thumbnails" [src]="alteration.oldPicByte">
+                                    </a>
+                                    <br style="color: black;" />
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngIf=alteration.fieldNew>
+                                    {{ alteration.fieldNew }}
+                                </div>
+                                <div *ngIf=alteration.newPicByte>
+                                    <img class="thumbnails" [src]="alteration.newPicByte">
+                                    <br style="color: black;" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

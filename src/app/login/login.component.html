@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container col-lg-6 login-container">
+    <div class="card login-frame">
+        <div class="card-body">
+            <form class="form-group">
+                <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                <div class="alert alert-warning" *ngIf='fillallfields'>{{allfieldsmessage}}</div>
+                <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+                <div class="form-group">
+                  <label for="username" class="font_ctrl">Username:</label>
+                  <input type="text" class="form-control form-control_ font_ctrl" id="username" [(ngModel)]="username" placeholder="Enter User Name"
+                    name="username">
+                </div>
+                <div class="form-group">
+                  <label for="password" class="font_ctrl">Password:</label>
+                  <input type="password" class="form-control form-control_ font_ctrl" [(ngModel)]="password" id="password" placeholder="Enter password"
+                    name="password">
+                </div>
+                <button (click)=handleLogin() class="btn btn-outline-info">Login</button>
+              </form>
+              <a data-toggle="modal" data-target="#modalForgetPassword" class="forget-password">{{ 'GSCLIMBING.FORGOTPASSWORD' | translate }}</a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Modal forget password-->
+  <div id="modalForgetPassword" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title title_" id="user-name-id"></h4>
+                <input type="hidden" id="user-id">
+                <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form class="form-group">
+                  <div class="alert alert-warning" *ngIf='emptyEmail'>{{emptyEmailMessage}}</div>
+                  <div class="alert alert-danger" *ngIf='invalidEmail'>{{invalidEmailMessage}}</div>
+                  <div class="alert alert-success" *ngIf='emailSend'>{{emailSendMessage}}</div>
+                  <div class="form-group">
+                    <label for="email" class="font_ctrl">Email:</label>
+                    <input type="text" class="form-control form-control_ font_ctrl" id="email" [(ngModel)]="email" placeholder="Email"
+                      name="email">
+                  </div>
+                  <button (click)=forgetPassword() class="btn btn-outline-info">{{ 'GSCLIMBING.NEWPASSWORD' | translate }}</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-info btn-sm" data-dismiss="modal">{{ 'GSCLIMBING.CLOSE' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->

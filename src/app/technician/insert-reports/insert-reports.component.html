@@ -1,0 +1,235 @@
+<div class="container">
+
+  <div class="formwd">
+    <label class="lbl">{{ 'GSCLIMBING.PROJECT' | translate }}</label>
+    <select id="aantal" class="form-control form-control_" (change)="changeValue($event)">
+      <option [ngValue]="undefined" disabled selected>{{ 'GSCLIMBING.SELET_ITEM' | translate }}</option>
+      <option *ngFor="let project of projects" [value]="project.idProject">{{project.name}}</option>
+    </select>
+  </div>
+
+  <input type="hidden" name="turbineIdDialog" id="turbineIdDialog" />
+
+  <div *ngIf="projectSelected">
+    <button class="btn btn-outline-info btn-sm magleft" (click)="downloadCleanReports(project.name, project.idProject)">{{
+      'GSCLIMBING.DOWNLOAD_REPORTS' | translate }}</button>
+    <div class="row">
+      <div class="block-left">
+        <div class="card-body">
+          <div id="wrapper" class="w-turbinas">
+            <table class="table table-bordered table-striped">
+              <thead class="headcolor">
+                <tr class="align_th">
+                  <th scope="col" colspan="2" class="cell_width">{{ 'GSCLIMBING.TURBINEID' | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let turbine of turbines; let idx = index">
+                  <td class="cell_width turbine_click" (click)='showTurbineReports(turbine.id, idx)'>{{ turbine.name }}
+                  </td>
+                  <div *ngIf="message == 'admin'">
+                    <app-dropdown-turbines [turbine]="turbine">
+                    </app-dropdown-turbines>
+                  </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-right">
+        <div class="div-border">
+
+          <div *ngIf="showDefectInspectionReport[i]">
+            <div *ngIf="!insertedDefectInspectionReport[i]">
+              <div id="showDefectInspectionReport[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.DEFECTS_INSPECTION_REPORTS' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(0)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' | translate
+                  }}</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showExaminationTransformer[i]">
+            <div *ngIf="!insertedExaminationTransformer[i]">
+              <div id="showExaminationTransformer[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.EXAMINATION_TRANSFORMER' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(1)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' | translate
+                  }}</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showMeasurementsMwSwitchgear[i]">
+            <div *ngIf="!insertedMeasurementsMwSwitchgear[i]">
+              <div id="showMeasurementsMwSwitchgear[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.MEASUREMENTS_MW_SWITCHGEAR' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(2)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' | translate
+                  }}</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showMeasurementsM6Kv[i]">
+            <div *ngIf="!insertedMeasurementsM6Kv[i]">
+              <div id="showMeasurementsM6Kv[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.MEASUREMENTS_M6KV' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(3)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' | translate }}</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showMeasurements690V400V[i]">
+            <div *ngIf="!insertedMeasurements690V400V[i]">
+              <div id="showMeasurements690V400V[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.MEASUREMENTS_690V400V' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(4)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' | translate
+                  }}</button>
+
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showOnboardCraneInspectionReport[i]">
+            <div *ngIf="!insertedOnboardCraneInspectionReport[i]">
+              <div id="showOnboardCraneInspectionReport[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.ONBOARD_CRANE_INSPECTION_REPORT_SERVICE' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(5)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' |
+                  translate
+                  }}</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showPerformanceReportRepairElevator[i]">
+            <div *ngIf="!insertedPerformanceReportRepairElevator[i]">
+              <div id="showPerformanceReportRepairElevator[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.PERFORMANCE_REPORT_REPAIR_ELEVATOR' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(6)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' |
+                  translate
+                  }}</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="showStatutoryInspectionReport[i]">
+            <div *ngIf="!insertedStatutoryInspectionReport[i]">
+              <div id="showStatutoryInspectionReport[i]" class="div-border margin-border">
+                <div>
+                  <h6 class="font_ctrl"> {{ 'GSCLIMBING.STATUORY_INSPECTION_REPORT' | translate }} </h6>
+                </div>
+                <input type="hidden" value="">
+                <button type="button" class="btn btn-outline-info btn-sm btn-margin open-InsertReportDialog"
+                  data-toggle="modal" data-target="#modalInsertReport" (click)="changeTypeReport(7)">{{
+                  'GSCLIMBING.DOWNLOAD_UPLOAD_REPORT' | translate
+                  }}</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal insert Reports-->
+    <div id="modalInsertReport" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title title_">{{ title }}</h4>
+            <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div *ngIf="showProgressBar" class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                  attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
+                  [ngStyle]="{ width: progress + '%' }">
+                  {{ progress }}%
+                </div>
+              </div>
+              <div class="row form-inline">
+                <div class="custom-file w-75 magleft form-control_">
+                  <input type="file" #myFileDefectsInspectionReport class="custom-file-input form-control_"
+                    id="fileReport" (change)="selectFile($event)">
+                  <label class="custom-file-label form-control_" for="customFile">{{ 'GSCLIMBING.CHOOSE_FILE' |
+                    translate
+                    }}</label>
+                </div>
+                <button class="btn btn-outline-info btn-sm magleft" [disabled]="!selectedFiles" 
+                  (click)="uploadReport()">
+                  {{ 'GSCLIMBING.UPLOAD' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default font_ctrl2" data-dismiss="modal">{{ 'GSCLIMBING.CLOSE' |
+              translate
+              }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+
+    <!-- Modal invalid Reports --- .modal-sm modal-lg .modal-xl-->
+    <div id="modalInvalidReport" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title title_">{{ 'GSCLIMBING.INVALIDREPORT' | translate }}</h4>
+            <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="message" style="white-space: pre-line">{{message}}</div>
+            <br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default font_ctrl2" data-dismiss="modal">{{ 'GSCLIMBING.CLOSE' |
+              translate
+              }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+
+  </div>
+</div>

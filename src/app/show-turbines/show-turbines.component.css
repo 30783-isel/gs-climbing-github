@@ -1,0 +1,379 @@
+.rounded {
+  border-collapse: separate;
+  border         : solid #670B25 1px;
+  border-radius  : 4px;
+}
+
+td,
+th {
+  border       : solid #670B25 none;
+  border-radius: 8px;
+}
+
+th {
+  background-color: #670B25;
+  color           : #ffffff;
+  border-top      : none;
+}
+
+
+
+.row-h {
+  line-height: 10%;
+}
+
+.id-clss {
+  width: 70%;
+}
+
+.drp_trb {
+  width: 30%;
+}
+
+.align-center {
+  position  : relative;
+  top       : 50%;
+  left      : 50%;
+  transform : translate(-50%, -50%);
+  text-align: center;
+}
+
+.row {
+  width     : 100%;
+  text-align: center;
+}
+
+.btn-center {
+  margin       : 0;
+  position     : relative;
+  top          : 50%;
+  left         : 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform    : translate(-50%, -50%);
+}
+
+.block-accordion-left {
+  width        : 30%;
+  margin-top   : 10px;
+  margin-left  : 40px;
+  margin-right : 20px;
+  margin-bottom: 0px;
+  text-align   : right;
+  font-weight  : bold;
+  display      : inline-block;
+  color        : #670B25;
+}
+
+
+.block-accordion-rigth {
+  width        : 50%;
+  margin-top   : 10px;
+  margin-left  : 0px;
+  margin-right : 0px;
+  margin-bottom: 0px;
+  text-align   : left;
+  display      : inline-block;
+  color        : #670B25;
+}
+
+
+​ .block-right {
+  width: 50%;
+}
+
+​ .cell {
+  width: 100px;
+}
+
+.block-left {
+  width: 25%;
+}
+
+​ .lacordeao {
+  color: #670B25 !important;
+}
+
+ngb-accordion .card {
+  border: none;
+}
+
+ngb-accordion .card-header {
+  margin-bottom   : 0;
+  color           : #000000;
+  background-color: transparent;
+}
+
+ngb-accordion .card-body {
+  padding-top   : 0.15rem;
+  padding-bottom: 0.15rem;
+
+  flex      : 1 1 auto;
+  min-height: 1px;
+  padding   : 0.15rem;
+}
+
+ngb-accordion /deep/ .card-body {
+  padding-top   : 0.1rem;
+  padding-bottom: 0.1rem;
+
+  flex      : 1 1 auto;
+  min-height: 1px;
+  padding   : 0.1rem;
+}
+
+ngb-accordion /deep/ .card /deep/ [role=tab] {
+  background-color: rgb(255, 255, 255);
+}
+
+ngb-accordion /deep/ .card /deep/ .btn-link {
+  text-align     : left;
+  width          : 100%;
+  text-decoration: none !important;
+  color          : #670B25;
+}
+
+ngb-accordion /deep/ .card /deep/ .btn-link:hover {
+  text-align     : left;
+  width          : 100%;
+  text-decoration: none !important;
+  color          : rgb(255, 255, 255);
+}
+
+ngb-accordion /deep/ .card /deep/.card-header {
+  background-color: rgb(255, 255, 255);
+}
+
+ngb-accordion /deep/ .card /deep/ .card-header:hover {
+  background-color: #670B25;
+}
+
+ngb-accordion /deep/ .card /deep/ .mb-0 {
+  width      : 103%;
+  margin     : -10px 0px 0px -20px;
+  padding-top: 10px;
+}
+
+ngb-accordion /deep/ .card /deep/ .btn-link:focus {
+  outline   : 0;
+  box-shadow: 0 0 0 .0rem rgba(255, 255, 255, 0.25) !important;
+}
+
+ngb-accordion /deep/ .card /deep/ .card-body {
+  padding-top   : 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.mostra_menu {
+  margin-bottom: 60px;
+}
+
+.turbine-id {
+  color      : #670B25;
+  text-align : initial;
+  margin     : 10px;
+  font-weight: bold;
+}
+
+.div-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #670B25;
+  margin-top  : 20px;
+}
+
+#wrapper {
+  width : 100%;
+  margin: 0;
+}
+
+#first-div {
+  width : 90%;
+  margin: 0;
+  float : left;
+}
+
+#second-div {
+  width : 10%;
+  margin: 0;
+  float : left;
+}
+
+.back_div {
+  width     : 100%;
+  text-align: right;
+}
+
+.img_title {
+  width: 3%;
+}
+
+.img_back_bordeux {
+  filter: invert(6%) sepia(86%) saturate(3551%) hue-rotate(335deg) brightness(92%) contrast(99%);
+}
+
+.cell_width {
+  width: 70%;
+}
+
+.cell_width_reports {
+  width: 50%;
+}
+
+.w-turbinas {
+  width: 60%;
+}
+
+.w-accordion {
+  width: 100%;
+}
+
+.table tr.active td {
+  background-color: hsl(343, 81%, 22%) !important;
+  color           : white;
+}
+
+.nav {
+  color: "white";
+}
+
+.nav-primary {
+  color: "Black";
+}
+
+.nav-primary.active {
+  color: "white";
+}
+
+.color {
+  color           : white;
+  font-weight     : bold;
+  background-color: red;
+}
+
+.cell {
+  width: 25%;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #ffffff;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+  background-color: #ffffff;
+}
+
+.align_th {
+  text-align: center;
+}
+
+
+.form-control_:focus {
+  border-color: #670B25;
+  box-shadow  : 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+}
+
+
+
+.inline {
+  display: inline-block;
+  padding: 20px;
+}
+
+
+.checkbox-wrapper {
+  white-space: nowrap;
+}
+
+.reports-label {
+  align-items: flex-start;
+
+}
+
+
+.first-row {
+  width: 40px;
+}
+
+.same-line {
+  display: flex;
+}
+
+
+.numberReports {
+  width      : 30px;
+  height     : 20px;
+  margin-left: 3px;
+}
+
+.isShownDefectsinspection {
+  display: none;
+}
+
+#defects-inspection-report:checked+.isShownDefectsinspection {
+  display: block;
+}
+
+
+.isShownExaminationtransformer {
+  display: none;
+}
+
+#examination-transformer:checked+.isShownExaminationtransformer {
+  display: block;
+}
+
+
+.isShowMeasurements6KV {
+  display: none;
+}
+
+#measurements-6KV:checked+.isShowMeasurements6KV {
+  display: block;
+}
+
+
+.isShowMeasurements690V400V {
+  display: none;
+}
+
+#measurements-690V400V:checked+.isShowMeasurements690V400V {
+  display: block;
+}
+
+
+.isShowMeasurementsmwswitchgear {
+  display: none;
+}
+
+#measurements-mw-switchgear:checked+.isShowMeasurementsmwswitchgear {
+  display: block;
+}
+
+
+.isShowOnboardcraneinspectionreport {
+  display: none;
+}
+
+#onboard-crane-inspection-report:checked+.isShowOnboardcraneinspectionreport {
+  display: block;
+}
+
+
+.isShowPerformancereportrepairelevator {
+  display: none;
+}
+
+#performance-report-repair-elevator:checked+.isShowPerformancereportrepairelevator {
+  display: block;
+}
+
+
+.isShowStatutoryinspectionreport {
+  display: none;
+}
+
+#statutory-inspection-report:checked+.isShowStatutoryinspectionreport {
+  display: block;
+}

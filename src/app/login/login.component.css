@@ -1,0 +1,23 @@
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-frame {
+    width: 50%;
+}
+
+.font_ctrl{
+    color: #50091D !important;
+}
+
+.form-control_:focus {
+    border-color: #670B25;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+}
+
+.forget-password{
+    color: #50091D !important;
+}

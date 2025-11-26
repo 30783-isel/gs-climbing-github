@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h4 class="modal-title title_">{{ title }}</h4>
+    <button type="button" class="close" (click)="close()" aria-hidden="true">
+        X
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <div *ngIf="(isTechnician && !permission2Edit && locked)">
+                    <div id="btn-ask-permission">
+                        <button (click)="askForUpdatePermission()" class="btn btn-outline-info">{{
+                            'GSCLIMBING.PERMISSION2EDIT' | translate }}</button>
+                    </div>
+                </div>
+                <div>
+                    <div *ngIf="((isTechnician && !locked) || !isTechnician)">
+                        <input type="hidden" name="turbineIdDialog" id="turbineIdDialog" />
+                        <div *ngIf="currentFile" class="progress">
+                            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                                attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
+                                [ngStyle]="{ width: progress + '%' }">
+                                {{ progress }}%
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="custom-file w-86 magleft form-control_">
+                                <input type="file" #myFileDefectsInspectionReport
+                                    class="custom-file-input form-control_" id="fileReport"
+                                    (change)="selectFilex($event)">
+                                <label class="custom-file-label form-control_" for="customFile">{{
+                                    'GSCLIMBING.CHOOSE_FILE' | translate
+                                    }}</label>
+                            </div>
+                            <button class="btn btn-outline-info btn-sm magleft" [disabled]="!selectedFiles"
+                                data-dismiss="modal" (click)="updateReport()">
+                                {{ 'GSCLIMBING.UPLOAD' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                   <div *ngIf="(isTechnician && permission2Edit && locked)">
+                        <span>{{ 'GSCLIMBING.PERMISSIONASKED' | translate }}</span>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <span class="pull-right" style="padding-right:2%">
+        <button type="button" class="btn btn-default btn-sm" (click)="close()" id="btnCancel">Close</button>
+    </span>
+</div>

@@ -1,0 +1,59 @@
+.title{
+    width: 50%;
+}
+
+.language-div{
+    text-align: right;
+}
+
+.masterHeader{
+    display:inline-block;
+}
+
+
+#wrapper {
+    width:100%;
+    margin : 0;
+}
+    
+#first-div {
+    width:50%;
+    margin : 0;
+    float : left ;
+}
+    
+#second-div {
+    width:100%;
+    margin : 0;
+}
+
+#third-div {
+    width:50%;
+    margin : 0;
+    float : left ;
+}
+
+.bordeux {
+    color: #50091D;
+}
+
+.username {
+    margin-right: 20px;
+}
+
+.border {
+    border: 20px solid rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.form-control_:focus {
+    border-color: #670B25;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+}
+
+.width_control{
+    width: 60px;
+}
+
+
+

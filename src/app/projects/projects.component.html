@@ -1,0 +1,208 @@
+<div class="card my-5">
+  <div class="card-body">
+
+    <div *ngIf="message == 'admin'" class="row">
+      <div class="block project-buttons">
+        <button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modalAddProject">{{
+          'GSCLIMBING.INSERT_PROJECT' |
+          translate }}</button>
+      </div>
+      <div class="block">
+        <a (click)="showSearch()" class="navbar-item" id="goback">
+          <img class="w10 img_title img_back_bordeux" src="assets/images/search.png">
+        </a>
+      </div>
+      <!-- 
+        <div class="block">
+          <button (click)="showSearch()" class="btn btn-outline-info btn-sm search-image">Search</button>
+        </div>
+      -->
+    </div>
+
+    <div *ngIf="message == 'admin' && showSearchBox" class="card-body rounded-search">
+      <form [formGroup]="filterForm" (ngSubmit)="filterProjects()" id="formFilterProject">
+        <div class="row">
+          <div class="block w50">
+            <label for="name" class="input-label">{{ 'GSCLIMBING.NAME' | translate }}</label>
+            <input formControlName="name" class="form-control form-control_ search-margin" id="name">
+          </div>
+          <div class="block w50">
+            <label for="country" class="input-label">{{ 'GSCLIMBING.COUNTRY' | translate }}</label>
+            <input formControlName="country" class="form-control form-control_ search-margin" id="country">
+          </div>
+        </div>
+        <div class="row">
+          <div class="block w50">
+            <label for="location" class="input-label">{{ 'GSCLIMBING.LOCATION' | translate }}</label>
+            <input formControlName="location" class="form-control form-control_ search-margin" id="location">
+          </div>
+          <div class="block w50">
+            <label for="site" class="input-label">{{ 'GSCLIMBING.SITE' | translate }}</label>
+            <input formControlName="site" class="form-control form-control_ search-margin" id="site">
+          </div>
+        </div>
+        <button class="btn btn-outline-info btn-sm">{{ 'GSCLIMBING.FILTER' | translate }}</button>
+      </form>
+    </div>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr class="align_th row_title">
+          <th scope="col">{{ 'GSCLIMBING.NAME' | translate }}</th>
+          <th scope="col">{{ 'GSCLIMBING.NUMBER_TURBINES' | translate }}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects" class="row_fields">
+          <td class="cell-name">{{ project.name }}</td>
+          <td class="cell-n-turbines">{{ project.numberTurbines }}</td>
+          <app-dropdown-projects [project]="project" (valueUpdate)="getUpdatedvalue($event)"></app-dropdown-projects>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="modalAddProject" class="modal fade" role="dialog">
+    <div class="modal-dialog  modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title title_" id="user-name-id"></h4>
+          <input type="hidden" id="user-id">
+          <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()" id="formAddProject">
+
+            <div class="form-group">
+              <label for="name" class="input-label">{{ 'GSCLIMBING.NAME' | translate }}</label>
+              <input formControlName="name" class="form-control form-control_" id="name">
+            </div>
+
+            <div class="form-group w60">
+              <label for="country" class="input-label">{{ 'GSCLIMBING.COUNTRY' | translate }}</label>
+              <input formControlName="country" class="form-control form-control_" id="country">
+            </div>
+
+            <div class="form-group">
+              <label for="location" class="input-label">{{ 'GSCLIMBING.LOCATION' | translate }}</label>
+              <input formControlName="location" class="form-control form-control_" id="location">
+            </div>
+
+            <div class="form-group w60">
+              <label for="numberTurbines" class="input-label">{{ 'GSCLIMBING.NUMBER_TURBINES' | translate }}</label>
+              <input formControlName="numberTurbines" class="form-control form-control_" id="numberTurbines">
+            </div>
+
+            <div class="form-group w60">
+              <label for="site" class="input-label">{{ 'GSCLIMBING.SITE' | translate }}</label>
+              <input formControlName="site" class="form-control form-control_" id="site">
+            </div>
+
+            <div class="form-group w60">
+              <label for="number" class="input-label">{{ 'GSCLIMBING.NUMBER' | translate }}</label>
+              <input formControlName="number" class="form-control form-control_" id="number">
+            </div>
+
+            <div class="form-group w60">
+              <label for="type" class="input-label">{{ 'GSCLIMBING.TYPE' | translate }}</label>
+              <input formControlName="type" class="form-control form-control_" id="type">
+            </div>
+
+            <button class="btn btn-outline-info btn-sm">{{ 'GSCLIMBING.ADD' | translate }}</button>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-info btn-sm" data-dismiss="modal">{{ 'GSCLIMBING.CLOSE' |
+            translate
+            }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <div id="modalViewTurbinesFromProject" class="modal fade" role="dialog">
+    <div class="modal-dialog  modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title title_" id="user-name-id"></h4>
+          <input type="hidden" id="user-id">
+          <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <div class="container">
+            <div class="row">
+              <div class="block-left">
+                <div class="card-body">
+                  <div id="wrapper" class="w-turbinas">
+                    <table class="table table-bordered table-striped">
+                      <thead class="headcolor">
+                        <tr class="align_th">
+                          <th scope="col" colspan="2" class="cell_width">ID</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let turbine of turbines">
+                          <td class="cell_width turbine_click">{{
+                            turbine.numberTurbine}}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-info btn-sm" data-dismiss="modal">{{ 'GSCLIMBING.CLOSE' |
+            translate
+            }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <!-- Modal add projects users-->
+  <div id="modalAddUsers2Project" class="modal fade" role="dialog">
+    <div class="modal-dialog  modal-xl">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 *ngIf="project != null" class="modal-title title_" id="user-name-id">{{ project.name }}</h4>
+          <input type="hidden" id="project-id">
+          <button type="button" class="close btn-sm" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <table>
+              <tr *ngFor="let user of users">
+                <td><input type="checkbox" class="users-id" [value]="user.idUser"></td>
+                <td>{{ user.name }}</td>
+                <td><button type="button" (click)="updateUser()" class="btn btn-outline-info btn-sm" data-dismiss="modal">{{
+                  'GSCLIMBING.UPDATE_USER' | translate}}</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-info btn-sm" data-dismiss="modal">{{
+            'GSCLIMBING.CLOSE' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+</div>

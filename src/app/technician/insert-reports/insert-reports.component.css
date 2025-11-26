@@ -1,0 +1,122 @@
+.lbl{
+    color: #670B25;
+    font-weight: bold;
+  }
+  
+  .block-right {
+    width: 75%;
+    display: inline;
+  }​
+  
+  .row {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .block-left {
+    width: 25%;
+  }​
+  
+  .cell_width {
+    width: 30%;
+  }
+  
+  .div-border{
+    border-width:2px;
+    border-style:solid;
+    border-color:#670B25;
+    margin-top: 20px;
+  }
+  
+  #wrapper {
+    width : 100%;
+    margin: 0;
+  }
+  
+  .w-turbinas {
+    width: 60%;
+  }
+  
+  .headcolor {
+    background-color: hsl(343, 81%, 22%);
+    color           : #ffffff;
+  }
+  
+  .align_th {
+    text-align: center;
+  }
+  
+  .formwd{
+    width: 50%;
+    margin-top: 50px;
+  }
+  
+  .title_{
+    color: #390615;
+    font-size: large;
+  }
+  
+  .form-control_:focus {
+      border-color: #670B25;
+      box-shadow  : 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+    }
+    
+    .font_ctrl {
+      color: #50091D !important;
+      ;
+    }
+    
+    .font_ctrl2 {
+      color: #390615 !important;
+      ;
+    }
+    
+    .mag {
+      margin-right: 20px;
+    }
+    
+    .magleft {
+      margin-top : 20px;
+      margin-left: 20px;
+    }
+    
+    .custom-file-input:focus~.custom-file-label {
+      border-color: #670B25;
+      box-shadow  : 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #670B25;
+    }
+    
+    
+    .div-border {
+      width: 100%;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #670B25;
+      margin-top  : 20px;
+    }
+    
+    .margin-border {
+      width: 96%;
+      margin: 2%;
+    }
+    
+    .btn-margin {
+      margin: 10px;
+    }
+    
+    .disableDiv {
+      pointer-events: none;
+    }
+    
+    .turbine-id {
+      color: #670B25;
+    }
+  
+  .table-striped>tbody>tr:nth-child(odd)>td,
+  .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #ffffff;
+  }
+  
+  .table-striped>tbody>tr:nth-child(even)>td,
+  .table-striped>tbody>tr:nth-child(even)>th {
+    background-color: #ffffff;
+  }
